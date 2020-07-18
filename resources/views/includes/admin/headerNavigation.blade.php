@@ -3,8 +3,8 @@
         <i class="fa fa-bars"></i>
     </a>
 
-    <a class="navbar-brand" href="#">
-        <img src="{{ asset('admin/assets/imgs/logo.png') }}" alt="logo">
+    <a class="navbar-brand" href="{{url('/')}}">
+        <img src="{{ asset('admin/assets/imgs/logo_village_tour.png') }}" alt="logo">
     </a>
 
     <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">

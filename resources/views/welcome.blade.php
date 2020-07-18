@@ -9,7 +9,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
             <h1>Village Tour</h1>
-            <span class="subheading">Enjoy the local environment of Bangladesh</span>
+            <span class="subheading">Enjoy the true essence of Bangladesh</span>
           </div>
         </div>
       </div>
