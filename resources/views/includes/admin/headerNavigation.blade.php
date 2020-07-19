@@ -12,7 +12,9 @@
     </a>
 
     <ul class="navbar-nav ml-auto">
-
+      @if(Auth::user()->author == true)
+        <a href="{{route('newPost')}}" class="btn btn-primary">New Post</a> | |
+      @endif
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="{{ asset('admin/assets/imgs/avatar-1.png') }}" class="avatar avatar-sm" alt="logo">
@@ -22,7 +24,7 @@
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header">Account</div>
 
-                <a href="#" class="dropdown-item">
+                <a href="{{route('userProfile')}}" class="dropdown-item">
                     <i class="fa fa-user"></i> Profile
                 </a>
                 <form id="logout-form" action="{{route('logout')}}" method="post">@csrf</form>

@@ -8,6 +8,16 @@
                     <div class="card-header bg-light">
                         Account Settings
                     </div>
+                    @if(session('error'))
+                      <div class="alert alert-danger">
+                        {{session('error')}}
+                      </div>
+                    @endif
+                    @if(session('success'))
+                      <div class="alert alert-success">
+                        {{session('success')}}
+                      </div>
+                    @endif
                     @if($errors->any())
                       <div class="alert alert-danger">
                         <ul>
@@ -74,7 +84,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">New Password Confirmation</label>
-                                            <input name="new_password" type="password" class="form-control">
+                                            <input name="new_password_confirmation" type="password" class="form-control">
                                         </div>
                                     </div>
                                 </div>

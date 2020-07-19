@@ -6,7 +6,7 @@
   <div class="content">
     <div class="card">
         <div class="card-header bg-light">
-            Striped Rows
+            User comments
         </div>
 
         <div class="card-body">
@@ -32,7 +32,7 @@
                           <form id="deleteComment-{{$comment->id}}" class="" action="{{route('deleteComment', $comment->id)}}" method="post">
                             @csrf
                           </form>
-                          <button type="button" class="btn btn-danger" onclick="document.getElementById('deleteComment-{{$comment->id}}').submit()">X</button> 
+                          <button type="button" class="btn btn-danger" onclick="document.getElementById('deleteComment-{{$comment->id}}').submit()">X</button>
                         </td>
                     </tr>
                     @endforeach
