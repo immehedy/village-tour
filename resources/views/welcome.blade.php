@@ -35,6 +35,7 @@
           </p>
         </div>
           @endforeach
+          {{ $posts->links()}}
         <hr>
         <!-- Pager -->
         <div class="clearfix">

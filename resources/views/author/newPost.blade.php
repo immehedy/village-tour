@@ -23,7 +23,7 @@ New Post
                         </ul>
                       </div>
                     @endif
-                    <form class="" action="{{route('createPost')}}" method="post">
+                    <form class="" action="{{route('createPost')}}" method="post" enctype="multipart/form-data">
                       @csrf
                         <div class="card-body">
                           <div class="row">
@@ -34,6 +34,12 @@ New Post
                                   </div>
                               </div>
 
+                          </div>
+                          <div class="col-md-8">
+                              <div class="form-group">
+                                  <label for="normal-input" class="form-control-label">File</label>
+                                  <input type="file" name="attachment" class="form-control" multiple >
+                              </div>
                           </div>
 
                           <div class="row mt-4">

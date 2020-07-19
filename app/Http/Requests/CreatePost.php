@@ -26,6 +26,8 @@ class CreatePost extends FormRequest
         return [
           'title'=>'required|string',
           'content'=>'required',
+          // 'attachment'=>'required',
+
         ];
     }
 }

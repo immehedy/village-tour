@@ -48,6 +48,11 @@ class AuthorController extends Controller
     }
     public function createpost(CreatePost $request){
       $post = new Post();
+      if($request->hasFile('attachment')){
+          $file = $request->file('attachment');
+          $name = time(). $file->getClientOriginalName();
+          $file -> move('images', $name);
+      }
       $post->title = $request['title'];
       $post->content = $request['content'];
       $post->user_id = Auth::id();

@@ -32,9 +32,23 @@
         <h2>Comments</h2>
         <hr>
         @foreach($post->comments as $comment)
-        <p>{{$comment->content}} <br>
-        <p> <small>by {{$comment->user->name}}, on {{$comment->created_at, 'F d, Y'}}</small> </p>
+          <em> <b>{{$comment->content}}</b></em>
+           <br>
+          <p> <small>by {{$comment->user->name}}, on {{$comment->created_at, 'F d, Y'}}</small> </p>
+          <hr>
         @endforeach
+        @if(Auth::check())
+          <form class="" action="{{route('newComment')}}" method="post">
+            @csrf
+            <div class="form-group">
+              <textarea class="form-control" name="content" placeholder="comment..." rows="4" cols="30"></textarea>
+              <input type="hidden" name="post" value="{{$post->id}}">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit" name="button">Make Comment</button>
+            </div>
+          </form>
+        @endif
       </div>
     </div>
   </article>
