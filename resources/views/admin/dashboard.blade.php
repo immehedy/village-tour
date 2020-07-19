@@ -60,11 +60,12 @@ Admin Dashboard
                     </div>
 
                     <div class="card-body p-0">
-
+                      {!! $chart->container() !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+{!! $chart->script() !!}
 @stop

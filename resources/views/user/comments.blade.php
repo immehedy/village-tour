@@ -32,7 +32,7 @@
                           <form id="deleteComment-{{$comment->id}}" class="" action="{{route('deleteComment', $comment->id)}}" method="post">
                             @csrf
                           </form>
-                          <button type="button" class="btn btn-danger" onclick="document.getElementById('deleteComment-{{$comment->id}}').submit()">X</button>
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteCommentModal-{{$comment->id}}"> <i class="icon icon-trash">Delete</i> </button>
                         </td>
                     </tr>
                     @endforeach
@@ -42,4 +42,26 @@
         </div>
     </div>
 </div>
+@foreach(Auth::user()->comments as $comment)
+<!-- Modal -->
+<div class="modal fade" id="deleteCommentModal-{{$comment->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">You are about to delete Comment.</h4>
+      </div>
+      <div class="modal-body">
+        Are you sure?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No, Keep it</button>
+        <form id="deleteComment-{{$comment->id}}" class="" action="{{route('deleteComment', $comment->id)}}" method="post">
+          @csrf
+          <button type="submit" class="btn btn-primary">Yes, delete it</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
 @stop

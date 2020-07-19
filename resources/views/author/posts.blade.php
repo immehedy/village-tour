@@ -33,10 +33,10 @@
 
                         <td>
                           <a href="{{route('postEdit', $post->id)}}" class="btn btn-warning">Edit</a>
-                          <form id="deletePost-{{$post->id}}" class="" action="{{route('deletePost', $post->id)}}" method="post">
+                          <form id="deletePost-{{$post->id}}" style="display:none" class="" action="{{route('deletePost', $post->id)}}" method="post">
                             @csrf
                           </form>
-                          <a href="#" class="btn btn-danger" onclick="document.getElementById('deletePost-{{$post->id}}').submit()">Remove</a>
+                          <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deletePostModal-{{$post->id}}">Remove</a>
                         </td>
                     </tr>
                     @endforeach
@@ -46,4 +46,26 @@
         </div>
     </div>
 </div>
+@foreach(Auth::user()->posts as $post)
+<!-- Modal -->
+<div class="modal fade" id="deletePostModal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">You are about to delete "{{$post->title}}".</h4>
+      </div>
+      <div class="modal-body">
+        Are you sure?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No, Keep it</button>
+        <form id="deletePost-{{$post->id}}" class="" action="{{route('adminDeletePost', $post->id)}}" method="post">
+          @csrf
+          <button type="submit" class="btn btn-primary">Yes, delete it</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
 @stop
