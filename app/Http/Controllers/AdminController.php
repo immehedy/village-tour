@@ -9,6 +9,7 @@ use App\Http\Requests\UserUpdate;
 use App\Post;
 use App\Comment;
 use App\User;
+use App\Contact;
 
 class AdminController extends Controller
 {
@@ -88,5 +89,9 @@ class AdminController extends Controller
     public function adminDeleteComment($id){
       $comment = Comment::where('id', $id)->delete();
       return back();
+    }
+    public function contacts(){
+      $contacts = Contact::all();
+      return view('admin.contacts', compact('contacts'));
     }
 }

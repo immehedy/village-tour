@@ -34,7 +34,7 @@
                 </a>
             </li>
             @endif
-            
+
             @if(Auth::user()->admin == true)
             <li class="nav-title">Admin</li>
             <li class="nav-item nav-dropdown">
@@ -53,8 +53,13 @@
                 </a>
             </li>
             <li class="nav-item nav-dropdown">
-                <a href="{{route('adminComments')}}" class="nav-link{{Route::currentRouteName() == 'adminComments' ? 'active' : ''}} {{Route::currentRouteName() == 'userDashboard' ? 'active' : ''}}">
+                <a href="{{route('adminComments')}}" class="nav-link{{Route::currentRouteName() == 'adminComments' ? 'active' : ''}}">
                     <i class="icon icon-book-open"></i> Comments
+                </a>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a href="{{route('adminContacts')}}" class="nav-link{{Route::currentRouteName() == 'adminContacts' ? 'active' : ''}}">
+                    <i class="icon icon-envelope"></i> Contacts
                 </a>
             </li>
             @endif

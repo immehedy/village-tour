@@ -3,7 +3,7 @@
 @section('content')
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{{asset('/assets/img/post-bg.jpg')}}')">
+  <header class="masthead" style="background-image: url('/assets/img/{{$post->title}}/cover.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -24,6 +24,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+          <a href="#">
+            <img class="img-fluid" src="/assets/img/{{$post->title}}/mp.jpg" alt="">
+          </a>
+          <span class="caption text-muted">Beautiful {{$post->title}}</span>
           {!! nl2br($post->content) !!}
         </div>
       </div>
